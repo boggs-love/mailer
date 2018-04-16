@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mailer:
+    links:
+      - messenger
+    volumes:
+      - ./:/app
+  api:
+    image: boggs/api
+    links:
+      - messenger
+    ports:
+      - 8888:80
+    env_file:
+      - .env
+  messenger:
+    image: rabbitmq:3-management
+    ports:
+      - 15672:15672
