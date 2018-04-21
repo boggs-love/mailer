@@ -1,6 +1,7 @@
 version: '3'
 services:
   mailer:
+    command: 'npm run dev-start'
     links:
       - messenger
     volumes:
@@ -13,7 +14,15 @@ services:
       - 8888:80
     env_file:
       - .env
+  smtp:
+    image: sj26/mailcatcher
+    ports:
+      - 1080:1080
   messenger:
     image: rabbitmq:3-management
     ports:
       - 15672:15672
+    volumes:
+      - messenger-data:/var/lib/rabbitmq
+volumes:
+  messenger-data:
