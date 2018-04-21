@@ -1,7 +1,7 @@
 version: '3'
 services:
   mailer:
-    command: 'npm run dev-start'
+    command: 'npm run start-dev'
     links:
       - messenger
     volumes:

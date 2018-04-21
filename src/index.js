@@ -31,14 +31,20 @@ const handleMessage = (message) => {
   return Promise.all([
     transporter.sendMail({
       from: site,
-      to: [bride, groom].join(', '),
-      replyTo: `${rsvp.firstName} ${rsvp.lastName} <${rsvp.email}>`,
+      to: [bride, groom],
+      replyTo: {
+        name: `${rsvp.firstName} ${rsvp.lastName}`,
+        address: rsvp.email,
+      },
       subject: `Wedding RSVP (${rsvp.id})`,
       text: ReactDOMServer.renderToStaticNodeStream(<Response rsvp={rsvp} />),
     }),
     transporter.sendMail({
       from: site,
-      to: `${rsvp.firstName} ${rsvp.lastName} <${rsvp.email}>`,
+      to: {
+        name: `${rsvp.firstName} ${rsvp.lastName}`,
+        address: rsvp.email,
+      },
       replyTo: bride,
       subject: rsvp.attending ? 'Invitation Accepted' : 'Invitation Declined',
       text: ReactDOMServer.renderToStaticNodeStream(<Thanks attending={rsvp.attending} />),

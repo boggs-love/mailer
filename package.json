@@ -11,8 +11,9 @@
   },
   "homepage": "https://github.com/boggs-love/mailer#readme",
   "scripts": {
-    "dev-start": "nodemon --exec npm run babel-node -- index.js",
-    "babel-node": "babel-node"
+    "build": "babel src --out-dir dist",
+    "start": "node ./dist/index.js",
+    "start-dev": "nodemon --exec npm run babel-node -- index.js"
   },
   "dependencies": {
     "amqplib": "^0.5.2",
