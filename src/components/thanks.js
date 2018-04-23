@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import N from './n';
 
 const Thanks = ({ attending }) => {
   if (attending) {
     return (
       <React.Fragment>
-        Thank you for responding to our wedding invitation.<N />
-        <N />
-        We look forward to seeing you on October 20th!<N />
-        <N />
-        Thank you,<N />
-        Jeremy {'&'} Amanda<N />
+        Thank you for responding to our wedding invitation.<br />
+        <br />
+        We look forward to seeing you on October 20th!<br />
+        <br />
+        Thank you,<br />
+        Jeremy & Amanda<br />
       </React.Fragment>
     );
   }

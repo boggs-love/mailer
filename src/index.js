@@ -37,7 +37,7 @@ const handleMessage = (message) => {
         address: rsvp.email,
       },
       subject: `Wedding RSVP (${rsvp.id})`,
-      text: ReactDOMServer.renderToStaticNodeStream(<Response rsvp={rsvp} />),
+      html: ReactDOMServer.renderToStaticNodeStream(<Response rsvp={rsvp} />),
     }),
     transporter.sendMail({
       from: site,
@@ -47,7 +47,7 @@ const handleMessage = (message) => {
       },
       replyTo: bride,
       subject: rsvp.attending ? 'Invitation Accepted' : 'Invitation Declined',
-      text: ReactDOMServer.renderToStaticNodeStream(<Thanks attending={rsvp.attending} />),
+      html: ReactDOMServer.renderToStaticNodeStream(<Thanks attending={rsvp.attending} />),
     }),
   ]).then(() => message);
 };

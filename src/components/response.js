@@ -1,60 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import N from './n';
 
 const Response = ({ rsvp }) => {
   const attending = (
     <React.Fragment>
-      Attending: {rsvp.attending ? 'Yes' : 'No'}<N />
-      <N />
+      Attending: {rsvp.attending ? 'Yes' : 'No'}<br />
+      <br />
     </React.Fragment>
   );
 
   const firstName = rsvp.firstName ? (
     <React.Fragment>
-      First Name: {rsvp.firstName}<N />
-      <N />
+      First Name: {rsvp.firstName}<br />
+      <br />
     </React.Fragment>
   ) : null;
 
   const lastName = rsvp.lastName ? (
     <React.Fragment>
-      Last Name: {rsvp.lastName}<N />
-      <N />
+      Last Name: {rsvp.lastName}<br />
+      <br />
     </React.Fragment>
   ) : null;
 
   const email = rsvp.email ? (
     <React.Fragment>
-      Email: {rsvp.email}<N />
-      <N />
+      Email: {rsvp.email}<br />
+      <br />
     </React.Fragment>
   ) : null;
 
   const phone = rsvp.phone ? (
     <React.Fragment>
-      Phone: {rsvp.phone}<N />
-      <N />
+      Phone: {rsvp.phone}<br />
+      <br />
     </React.Fragment>
   ) : null;
 
   const guest = rsvp.guest ? (
     <React.Fragment>
-      Guests:<N />
+      Guests:<br />
       {rsvp.guest.map((g, i) => (
         <React.Fragment key={i}>
-          {g.firstName} {g.lastName}<N />
+          {g.firstName} {g.lastName}<br />
         </React.Fragment>
       ))}
-      <N />
+      <br />
     </React.Fragment>
   ) : null;
 
   const note = rsvp.note ? (
     <React.Fragment>
-      Note:<N />
-      {rsvp.note}<N />
-      <N />
+      Note:<br />
+      {rsvp.note}<br />
+      <br />
     </React.Fragment>
   ) : null;
 
