@@ -41,8 +41,8 @@ const Response = ({ rsvp }) => {
   const guest = rsvp.guest ? (
     <React.Fragment>
       Guests:<N />
-      {rsvp.guest.map(g => (
-        <React.Fragment>
+      {rsvp.guest.map((g, i) => (
+        <React.Fragment key={i}>
           {g.firstName} {g.lastName}<N />
         </React.Fragment>
       ))}
