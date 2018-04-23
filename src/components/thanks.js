@@ -11,7 +11,7 @@ const Thanks = ({ attending }) => {
         We look forward to seeing you on October 20th!<N />
         <N />
         Thank you,<N />
-        Jeremy & Amanda<N />
+        Jeremy {'&'} Amanda<N />
       </React.Fragment>
     );
   }
