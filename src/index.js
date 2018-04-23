@@ -67,7 +67,11 @@ connect()
           })
           .catch((error) => {
             console.error(error);
-            ch.nack(message);
+            // Just acknowledge the message so we don't get in an infinite loop.
+            // Right now it's posisble for one of the messages to fail, but other
+            // to sucseed. Maybe we should listen to two different queues?
+            // @TODO Gracefully handle a failure.
+            ch.ack(message);
           })
       ), { noAck: false }),
     ])
